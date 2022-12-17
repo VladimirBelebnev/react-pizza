@@ -1,26 +1,23 @@
-import Categories from "../Categories";
-import Sort from "../Sort";
-import PizzaBlock from "../PizzaBlock";
+import Categories from "../Categories/Categories";
+import Sort from "../Sort/Sort";
+import PizzaBlock from "../PizzaBlock/PizzaBlock";
 
-const MainPage = () => {
+const MainPage = ({ data }) => {
     return (
-        <div class="content">
-            <div class="container">
-                <div class="content__top">
+        <div className="content">
+            <div className="container">
+                <div className="content__top">
                     <Categories />
                     <Sort />
                 </div>
-                <h2 class="content__title">Все пиццы</h2>
-                <div class="content__items">
-                    <PizzaBlock />
-                    <PizzaBlock />
-                    <PizzaBlock />
-                    <PizzaBlock />
-                    <PizzaBlock />
-                    <PizzaBlock />
-                    <PizzaBlock />
-                    <PizzaBlock />
-                    <PizzaBlock />
+                <h2 className="content__title">Все пиццы</h2>
+                <div className="content__items">
+                    {data.map((pizza) => (
+                        <PizzaBlock
+                            key={pizza.id}
+                            pizza={pizza}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
